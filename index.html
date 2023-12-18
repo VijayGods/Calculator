@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Calculator</title>
+    <style type="text/css">
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        .mdiv {
+            height: 100vh;
+            width: 100%;
+            background-color: #f4f4f4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .calc {
+            width: 300px;
+            height: 400px;
+            background-color: #e0e0e0;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .op {
+            width: calc(100% - 20px);
+            height: 50px;
+            font-size: 20px;
+            text-align: right;
+            padding: 10px;
+            border: none;
+            outline: none;
+            background-color: #fff;
+            border-bottom: 1px solid #ccc;
+            margin: 10px;
+            border-radius: 5px;
+        }
+
+        .row {
+            display: flex;
+        }
+
+        .button {
+            flex: 1;
+            height: 60px;
+            font-size: 18px;
+            margin: 5px;
+            border: 1px solid #ccc;
+            outline: none;
+            cursor: pointer;
+            background-color: #f9f9f9;
+            transition: background-color 0.3s ease;
+            border-radius: 5px;
+        }
+
+        .button:hover {
+            background-color: #e0e0e0;
+        }
+
+        .button.double {
+            flex: 2;
+        }
+
+        .button.operator {
+            background-color: #f39200;
+            color: white;
+        }
+
+        .button.operator:hover {
+            background-color: #d38000;
+        }
+    </style>
+</head>
+<body>
+    <div class="mdiv">
+        <div class="calc">
+            <form>
+                <input type="text" name="op" class="op" readonly>
+                <div class="row">
+                    <input type="button" name="AC" value="AC" onclick="op.value=' '" class="button operator">
+                    <input type="button" name="C" value="C" onclick="op.value = op.value.slice(0, -1)" class="button operator">
+                    <input type="button" name="mod" value="%" onclick="op.value+='%'" class="button operator">
+                    <input type="button" name="operator" value="/" onclick="op.value+='/'" class="button operator">
+                </div>
+                <div class="row">
+                    <input type="button" name="number" value="7" onclick="op.value+='7'" class="button">
+                    <input type="button" name="number" value="8" onclick="op.value+='8'" class="button">
+                    <input type="button" name="number" value="9" onclick="op.value+='9'" class="button">
+                    <input type="button" name="operator" value="x" onclick="op.value+='*'" class="button operator">
+                </div>
+                <div class="row">
+                    <input type="button" name="number" value="4" onclick="op.value+='4'" class="button">
+                    <input type="button" name="number" value="5" onclick="op.value+='5'" class="button">
+                    <input type="button" name="number" value="6" onclick="op.value+='6'" class="button">
+                    <input type="button" name="operator" value="-" onclick="op.value+='-'" class="button operator">
+                </div>
+                <div class="row">
+                    <input type="button" name="number" value="1" onclick="op.value+='1'" class="button">
+                    <input type="button" name="number" value="2" onclick="op.value+='2'" class="button">
+                    <input type="button" name="number" value="3" onclick="op.value+='3'" class="button">
+                    <input type="button" name="operator" value="+" onclick="op.value+='+'" class="button operator">
+                </div>
+                <div class="row">
+                    <input type="button" name="number" value="0" onclick="op.value+='0'" class="button double">
+                    <input type="button" name="operator" value="." onclick="op.value+='.'" class="button">
+                    <input type="button" name="operator" value="=" onclick="op.value=eval(op.value)" class="button operator">
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
